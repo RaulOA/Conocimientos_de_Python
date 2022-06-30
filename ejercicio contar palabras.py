@@ -4,27 +4,25 @@ Escribir otra función que reciba el diccionario generado con la función
 anterior y devuelva una tupla con la palabra más repetida y su frecuencia."""
 def dic(string):
     characters = "'!?.,;:"
-    string.lower()
+    respuesta={}
     for x in range(len(characters)):
         string = string.replace(characters[x],"")
-    string=string.title()
-    lista=string.split(" ")
-    respuesta={}
-    for a in lista:
-        respuesta[a]=lista.count(a)
+    string=string.title().split(" ")
+    for a in string:
+        respuesta[a]=string.count(a)
     return respuesta
+
+def tup(a):
+    mayor=[0,0]
+    for x,y in a.items():
+        if y>mayor[0]:
+            mayor[0]=y
+            mayor[1]=x
+    respuesta=tuple(mayor)
+    return respuesta
+
 diccionario=dic("Estos ejercicios, tienen Como? propósito mejorar; nuestras: Como habilidades, tienen?? como: programador; Como python")
 print(diccionario)
-def tup(a):
-    mayor1=0
-    mayor2=""
-    for x,y in a.items():
-        if y>mayor1:
-            mayor1=y
-            mayor2=x
-    lista=[mayor2,mayor1]
-    respuesta=tuple(lista)
-    return respuesta
 print(tup(diccionario))
 
 
